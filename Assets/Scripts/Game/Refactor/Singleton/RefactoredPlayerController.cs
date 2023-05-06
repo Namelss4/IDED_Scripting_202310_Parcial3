@@ -2,6 +2,7 @@ public class RefactoredPlayerController : PlayerControllerBase
 {
     
     private static RefactoredPlayerController instance;
+    public static RefactoredPlayerController Instance { get => instance; private set => instance = value; }
     protected override bool NoSelectedBullet => throw new System.NotImplementedException();
 
     protected override void Shoot()

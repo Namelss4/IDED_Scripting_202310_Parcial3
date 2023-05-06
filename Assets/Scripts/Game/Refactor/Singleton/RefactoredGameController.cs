@@ -3,6 +3,20 @@ using Unity.VisualScripting;
 public sealed class RefactoredGameController : GameControllerBase
 {
     private static RefactoredGameController instance;
+    public static RefactoredGameController Instance { get => instance; private set => instance = value; }
+
+    public delegate void OnGameOver();
+
+    //public delegate void OnObstacleDestroyed(int hp);
+
+    public event OnGameOver onGameOver;
+
+    //public event OnObstacleDestroyed onObstacleDestroyed;
+
+
+
+    //void OnObstacleDestroyed(int hp): Se invoca en el momento en que se destruye un obstáculo.
+    //void OnGameOver():
 
     protected override PlayerControllerBase PlayerController => throw new System.NotImplementedException();
 
@@ -14,6 +28,8 @@ public sealed class RefactoredGameController : GameControllerBase
     {
         throw new System.NotImplementedException();
     }
+
+    //public event OnObstacleDestroyed lol;
 
     private void Awake()
     {

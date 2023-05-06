@@ -3,6 +3,7 @@ using UnityEngine;
 public class RefactoredObstacleSpawner : ObstacleSpawnerBase
 {
     private static RefactoredObstacleSpawner instance;
+    public static RefactoredObstacleSpawner Instance { get => instance; private set => instance = value; }
 
     [SerializeField]
     private PoolBase obstacleLowPool;
