@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class RefactoredObstacleSpawner : ObstacleSpawnerBase
 {
+    private static RefactoredObstacleSpawner instance;
+
     [SerializeField]
     private PoolBase obstacleLowPool;
 
@@ -14,5 +16,17 @@ public class RefactoredObstacleSpawner : ObstacleSpawnerBase
     protected override void SpawnObject()
     {
         throw new System.NotImplementedException();
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
