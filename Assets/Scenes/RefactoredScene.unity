@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RefactoredUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5764797619048575460, guid: f90b870f61324b44eb11d79a229d791d, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 752566440}
+    - target: {fileID: 5764797619048575460, guid: f90b870f61324b44eb11d79a229d791d, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1630337355}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f90b870f61324b44eb11d79a229d791d, type: 3}
 --- !u!1 &257161268
@@ -527,6 +535,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playTime: 60
+  uiManager: {fileID: 971289434}
+  playerController: {fileID: 1630337355}
+  obstacleSpawner: {fileID: 1626675254}
 --- !u!1 &797594116
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +755,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &971289434 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5764797619048575460, guid: f90b870f61324b44eb11d79a229d791d, type: 3}
+  m_PrefabInstance: {fileID: 66937650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d9204190af4b546a18eb23b403d6df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1626675251
 GameObject:
   m_ObjectHideFlags: 0

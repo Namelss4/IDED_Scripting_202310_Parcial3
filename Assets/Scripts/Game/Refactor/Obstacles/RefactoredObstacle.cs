@@ -1,9 +1,30 @@
 public abstract class RefactoredObstacle : ObstacleBase
 {
-    protected override GameControllerBase GameController => throw new System.NotImplementedException();
+    private static GameControllerBase gameController;
+
+    //private static GameController gameController;
+
+    protected override GameControllerBase GameController
+    {
+        get
+        {
+            if (gameController == null)
+            {
+                gameController = FindObjectOfType<RefactoredGameController>();
+            }
+
+            return gameController;
+        }
+    }
 
     protected override void DestroyObstacle(bool notify = false)
     {
-        throw new System.NotImplementedException();
+        if (notify)
+        {
+            
+            //GameController?.SendMessage("OnObstacleDestroyed", HP);
+        }
+
+        Destroy(gameObject);
     }
 }

@@ -1,10 +1,20 @@
+using UnityEngine;
+
 public class RefactoredUIManager : UIManagerBase
 {
     private static RefactoredUIManager instance;
-    public static RefactoredUIManager Instance { get => instance; private set => instance = value; }
-    protected override PlayerControllerBase PlayerController => throw new System.NotImplementedException();
 
-    protected override GameControllerBase GameController => throw new System.NotImplementedException();
+    [SerializeField]
+    private RefactoredPlayerController playerController;
+
+    [SerializeField]
+    private GameControllerBase gameController;
+
+    public static RefactoredUIManager Instance { get => instance; private set => instance = value; }
+
+    protected override PlayerControllerBase PlayerController => playerController;
+
+    protected override GameControllerBase GameController => gameController;
 
     private void Awake()
     {
