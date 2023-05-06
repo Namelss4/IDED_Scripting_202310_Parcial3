@@ -24,7 +24,7 @@ public sealed class RefactoredGameController : GameControllerBase
 
     protected override ObstacleSpawnerBase Spawner => throw new System.NotImplementedException();
 
-    protected override void OnObstacleDestroyed(int hp)
+    protected override void OnScoreChanged(int hp)
     {
         throw new System.NotImplementedException();
     }
