@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletHardPool : MonoBehaviour
+public class BulletHardPool : PoolBase
 {
     protected override void ProcessTargetToRetrieve(GameObject instance)
     {

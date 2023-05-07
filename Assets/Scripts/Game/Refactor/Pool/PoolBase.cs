@@ -9,7 +9,7 @@ public abstract class PoolBase : MonoBehaviour, IPool
     [SerializeField]
     private GameObject basePrefab;
 
-    private List<GameObject> instances = new List<GameObject>();
+    protected List<GameObject> instances = new List<GameObject>();
 
     public void RecycleInstance(GameObject instance)
     {

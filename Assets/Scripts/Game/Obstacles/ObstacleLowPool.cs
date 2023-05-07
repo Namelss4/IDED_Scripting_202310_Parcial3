@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletLowPool : PoolBase
+public class ObstacleLowPool : PoolBase
 {
     protected override void ProcessTargetToRetrieve(GameObject instance)
     {
