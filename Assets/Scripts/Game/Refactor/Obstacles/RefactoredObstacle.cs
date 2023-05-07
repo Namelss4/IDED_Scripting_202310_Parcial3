@@ -44,11 +44,11 @@ public abstract class RefactoredObstacle : ObstacleBase
         }
 
         UnityEngine.Debug.Log("Se destruyó");
+
         //Here goes the recycle
 
-
         ObstacleLowPool.Instance.RecycleInstance(gameObject); //this is clearly not working as well
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
     }
 
