@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public sealed class RefactoredGameController : GameControllerBase
+public sealed class RefactoredGameController : GameControllerBase, IObserver
 {
     [SerializeField]
     private RefactoredUIManager uiManager;
@@ -41,7 +41,13 @@ public sealed class RefactoredGameController : GameControllerBase
     {
         throw new System.NotImplementedException();
     }
-    
+
+    private void Instance_onObstacleBeingDestroyed(int hp)
+    {
+        onObstacleDestroyed.Invoke(hp);
+        OnScoreChanged(hp);
+    }
+
     //public event OnObstacleDestroyed lol;
 
     private void Awake()
@@ -56,8 +62,17 @@ public sealed class RefactoredGameController : GameControllerBase
         }
     }
 
-    private void Update()
+    private void Start()
     {
-        
+        RefactoredObstacle.Instance.onObstacleBeingDestroyed += Instance_onObstacleBeingDestroyed; //this caused a lot of problems but fixed itself out of nowhere
+        //RefactoredObstacle.Instance.onObstacleBeingDestroyed += onObstacleDestroyed;
+
+        //RefactoredObstacle.Instance.SubscribeObserver(this);
+    }
+
+
+    public void Notify(int hp)
+    {
+        Instance_onObstacleBeingDestroyed(hp);
     }
 }
