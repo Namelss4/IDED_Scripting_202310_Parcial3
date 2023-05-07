@@ -64,7 +64,7 @@ public sealed class RefactoredGameController : GameControllerBase, IObserver
 
     private void Start()
     {
-        RefactoredObstacle.Instance.onObstacleBeingDestroyed += Instance_onObstacleBeingDestroyed; //this caused a lot of problems but fixed itself out of nowhere
+        //RefactoredObstacle.Instance.onObstacleBeingDestroyed += Instance_onObstacleBeingDestroyed; //this caused a lot of problems but fixed itself out of nowhere
         //RefactoredObstacle.Instance.onObstacleBeingDestroyed += onObstacleDestroyed;
 
         //RefactoredObstacle.Instance.SubscribeObserver(this);

@@ -1,9 +1,15 @@
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine;
+
 public abstract class RefactoredObstacle : ObstacleBase
 {
     private static GameControllerBase gameController;
 
     private static RefactoredObstacle instance;
+
+    [UnityEngine.SerializeField]
+    PoolBase poolBase; //this will clearly not work
     public static RefactoredObstacle Instance { get => instance; private set => instance = value; }
 
     //private static GameController gameController;
@@ -37,7 +43,13 @@ public abstract class RefactoredObstacle : ObstacleBase
             //GameController?.SendMessage("OnObstacleDestroyed", HP);
         }
 
+        UnityEngine.Debug.Log("Se destruyó");
+        //Here goes the recycle
+
+
+        ObstacleLowPool.Instance.RecycleInstance(gameObject); //this is clearly not working as well
         Destroy(gameObject);
+
     }
 
     public void Awake()

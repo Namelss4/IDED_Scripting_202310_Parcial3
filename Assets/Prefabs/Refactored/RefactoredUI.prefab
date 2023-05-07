@@ -797,6 +797,8 @@ MonoBehaviour:
   scoreLabel: {fileID: 1272081930368154780}
   timeLabel: {fileID: 1272081930027588959}
   gameOverPanel: {fileID: 1272081931737327436}
+  playerController: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &1272081931373298090
 GameObject:
   m_ObjectHideFlags: 0

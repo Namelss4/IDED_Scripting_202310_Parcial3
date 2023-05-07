@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RefactoredObstacleSpawner : ObstacleSpawnerBase
@@ -16,8 +17,23 @@ public class RefactoredObstacleSpawner : ObstacleSpawnerBase
 
     protected override void SpawnObject()
     {
-        throw new System.NotImplementedException();
+        int index = Random.Range(0, 3);
+
+        switch (index)
+        {
+            case 0:
+                obstacleLowPool.RetrieveInstance();
+                break;
+            case 1:
+                obstacleLowPool.RetrieveInstance();
+                break;
+            case 2:
+                obstacleLowPool.RetrieveInstance();
+                break;
+        }
     }
+
+
 
     private void Awake()
     {
@@ -29,5 +45,16 @@ public class RefactoredObstacleSpawner : ObstacleSpawnerBase
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        StartCoroutine(SpawnObjectCR());
+    }
+
+    IEnumerator SpawnObjectCR()
+    {
+        yield return new WaitForSeconds(Random.Range(1,4));
+        SpawnObject();
     }
 }
