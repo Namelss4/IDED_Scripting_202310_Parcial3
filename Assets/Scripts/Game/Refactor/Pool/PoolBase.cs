@@ -13,19 +13,33 @@ public abstract class PoolBase : MonoBehaviour, IPool
 
     public void RecycleInstance(GameObject instance)
     {
-        throw new System.NotImplementedException();
+        ProcessTargetToRecycle(instance);
+        instances.Add(instance);
     }
 
     public GameObject RetrieveInstance()
     {
-        throw new System.NotImplementedException();
+        if (instances.Count < 1)
+        {
+            PopulatePool();
+        }
+
+        GameObject instance = instances[0];
+        ProcessTargetToRetrieve(instance);
+        instances.Remove(instance);
+        return instance;
     }
 
     private void PopulatePool()
     {
         for (int i = 0; i < count; i++)
         {
-            instances.Add(Instantiate(basePrefab, transform.position, Quaternion.identity));
+            GameObject newInstance = Instantiate(basePrefab, transform.position, Quaternion.identity);
+            instances.Add(newInstance);
+            RecycleInstance(newInstance);
         }
     }
+
+    protected abstract void ProcessTargetToRetrieve(GameObject instance);
+    protected abstract void ProcessTargetToRecycle(GameObject instance);
 }
